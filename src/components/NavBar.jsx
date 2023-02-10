@@ -1,6 +1,7 @@
 import CartWidget from './CartWidget';
-import { Container, Flex, Spacer, Box, Heading,   Menu, MenuButton,MenuList,MenuItem, MenuItemOption, MenuGroup,MenuOptionGroup,MenuDivider, Button, ButtonGroup } from '@chakra-ui/react'
+import { Container, Flex, Spacer, Box, Heading,   Menu, MenuButton,MenuList,MenuItem, Button } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
@@ -8,19 +9,34 @@ const NavBar = () => {
     <Container maxW='100rem' bg='#FADBD8' color='#262626'>
         <Flex alignContent='center' gap='2'>
             <Box p='2' color='brown'>
-        <Heading size='md'>E-commerce</Heading>
+                <Link to={'/'}>
+                    <Heading size='md'>La Torteria</Heading>
+                </Link>
             </Box>
             <Spacer />
             <Menu>
-            <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                Categorias
-            </MenuButton>
-            <MenuList>
-                <MenuItem>Categoria1</MenuItem>
-                <MenuItem><a href=''>Categoria2</a></MenuItem>
-                <MenuItem><a href=''>Categoria3</a></MenuItem>
-                <MenuItem><a href=''>Categoria4</a></MenuItem>
-            </MenuList>
+                <Link to={'/catalogo'}>
+                    <Button as={Button}>
+                        Catalogo
+                    </Button>
+                </Link>
+                <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                    Categorias
+                </MenuButton>
+                <MenuList>
+                    <Link to={`/category/${"Torta"}`}>
+                        <MenuItem>Torta</MenuItem>
+                    </Link>
+                    <Link to={`/category/${"Postre"}`}>
+                        <MenuItem>Postre</MenuItem>
+                    </Link>
+                    <Link to={`/category/${"Golosina"}`}>
+                        <MenuItem>Golosina</MenuItem>
+                    </Link>
+                    <Link to={`/category/${"Paletas"}`}>
+                        <MenuItem>Paletas</MenuItem>
+                    </Link>
+                </MenuList>
             </Menu>
             <Spacer />
             <Box p='2' color='white'>

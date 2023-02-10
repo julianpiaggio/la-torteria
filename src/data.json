@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+        "name":"Producto1",
+        "description": "descripcion del producto 1",
+        "price": 1500,
+        "category": "Torta",
+        "stock": 15
+    },
+    {
+        "id": 2,
+        "name":"Producto2",
+        "description": "descripcion del producto 2",
+        "price": 700,
+        "category": "Postre",
+        "stock": 38
+        },
+    {
+        "id": 3,
+        "name":"Producto3",
+        "description": "descripcion del producto 3",
+        "price": 180,
+        "category": "Golosina",
+        "stock": 66
+    },
+    {
+        "id": 4,
+        "name":"Producto4",
+        "description": "descripcion del producto 4",
+        "price": 3500,
+        "category": "Torta",
+        "stock": 8
+    },
+    {
+        "id": 5,
+        "name":"Producto5",
+        "description": "descripcion del producto 5",
+        "price": 450,
+        "category": "Paletas",
+        "stock": 35
+    }
+
+]
