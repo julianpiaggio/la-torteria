@@ -4,7 +4,7 @@ import Item from './Item'
 const ItemList = ({ productos }) => {
   return (
     <>
-      <Container maxW="container.sm" className="main-catalogue">
+      <div className="catalogo">
         {productos.map((producto) => (
           <Item
             key={producto.id}
@@ -14,9 +14,10 @@ const ItemList = ({ productos }) => {
             price={producto.price}
             category={producto.category}
             stock={producto.stock}
+            image={producto.image}
             />
         ))}
-      </Container>
+      </div>
     </>
   )
 }
