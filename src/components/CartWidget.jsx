@@ -1,20 +1,24 @@
-import { Container, Flex, Spacer, Box, Heading } from '@chakra-ui/react'
-import image from '../assets/carrito.png'
+import { Button } from "@chakra-ui/react";
+import { useContext } from "react";
+import { CartContext } from "../contexts/CartContextComp";
 
 const CartWidget = () => {
+  const [cart, setCart] = useContext(CartContext);
+
+  const quantity = cart.reduce((acc, curr) => {
+    return acc + curr.quantity;
+  }, 0);
+
   return (
     <>
-    <Container>
-      <Flex>
       <div>
-        <img src={image} width='30px'/>
+        <Button size="lg" variant="outline" colorScheme="orange">
+          <span className="material-symbols-outlined">shopping_cart</span>
+          <span>{quantity}</span>
+        </Button>
       </div>
-      <span>0</span>
-      </Flex>
-    </Container>
     </>
+  );
+};
 
-  )
-}
-
-export default CartWidget
+export default CartWidget;

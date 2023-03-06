@@ -1,50 +1,50 @@
-import imagen from '../assets/torta.jpg'
+import React from "react";
 import {
-    Center,
-    Card,
-    CardBody,
-    Image,
-    Heading,
-    Text,
-    Divider,
-    Stack,
-    CardFooter,
-    Button,
+  Center,
+  Card,
+  CardBody,
+  Image,
+  Heading,
+  Text,
+  Divider,
+  Stack,
+  CardFooter,
+  Button,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const Item = ({ id, name, stock, category, image }) => {
-    return (
+  return (
     <div>
-    <div key={id}>
+      <div key={id}>
         <Center p="1rem">
-        <Card className="card">
+          <Card className="card-main">
             <CardBody>
-            <Image w='300px' h='180px' borderRadius="lg" src={image} />
-            <Stack mt="6" spacing="3">
+              <Image w='300px' h='180px' src={image} />
+              <Stack mt="6" spacing="3">
                 <Heading size="md">{name}</Heading>
 
                 <Text color="blue.800" fontSize="l">
-                category: {category}
+                  Category: {category}
                 </Text>
                 <Text color="red.600" fontSize="xl">
-                stock: {stock}
+                  Stock: {stock}
                 </Text>
-            </Stack>
+              </Stack>
             </CardBody>
             <Divider />
             <CardFooter className="card-footer">
-            <Center className="btn-center">
+              <Center className="btn-center">
                 <Button variant="solid" colorScheme="blue">
-                <Link to={`/item/${id}`}>Details</Link>
+                  <Link to={`/item/${id}`}>Details</Link>
                 </Button>
-            </Center>
+              </Center>
             </CardFooter>
-        </Card>
+          </Card>
         </Center>
+      </div>
     </div>
-    </div>
-    );
+  );
 };
 
-export default Item
+export default Item;

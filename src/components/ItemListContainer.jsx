@@ -1,58 +1,31 @@
-import { Center, Heading, Text } from '@chakra-ui/react'
-import { useParams } from 'react-router-dom'
-import Data from "../data.json";
-import ItemList from './ItemList'
+import { useState, useEffect } from "react";
+import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 const ItemListContainer = () => {
+  const [productos, setProductos] = useState([]);
   const { category } = useParams();
-  console.log(category);
 
-
-  const getDatos = () => {
-    return new Promise((resolve,reject) => {
-      if(Data.length === 0) {
-        reject(new Error('no hay datos'))
-      }
-      setTimeout(() => {
-        resolve(Data);
-      }, 2000)
+  useEffect(() => {
+    const db = getFirestore();
+    const productosCollection = collection(db, "productos");
+    getDocs(productosCollection).then((querySnapshot) => {
+      const productos = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setProductos(productos);
     });
-  };
+  }, []);
 
-  async function fetchingData() {
-    try {
-      const datosFetched = await getDatos();
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  const catFilter = productos.filter((producto) => producto.category === category);
 
-  fetchingData();
+  return (
+    <div>
+      {category ? <ItemList productos={catFilter} /> : <ItemList productos={productos} />}
+    </div>
+  );
+};
 
-  if (category === undefined) {
-    return (
-      <div>
-        <Center bg="#D6EAF8" h="100px" color="black">
-          <Heading as="h2" size="2xl">
-            Catalogo
-          </Heading>
-        </Center>
-        <ItemList productos={Data} />
-      </div>
-    );
-  } else {
-    const catfilter = Data.filter((producto) => producto.category === category);
-    return (
-      <div>
-        <Center bg="#D6EAF8" h="100px" color="black">
-          <Heading as="h2" size="2xl">
-            productos por categoria
-          </Heading>
-        </Center>
-        {catfilter ? <ItemList productos={catfilter} /> : <ItemList productos={Data} />}
-      </div>
-    );
-  }
-}
-
-export default ItemListContainer
+export default ItemListContainer;
