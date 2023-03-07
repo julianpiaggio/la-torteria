@@ -14,12 +14,11 @@ import { useState, useContext } from "react";
 import Brief from "./Brief";
 import Cart from "./Cart";
 import { Link } from "react-router-dom";
-import CartWidget from "./CartWidget";
 
 
 const SendOrder = ({ totalPrice }) => {
   const [
-    cart, setCart,orderId, setOrderId,ocultarCartWidget,setOcultarCartWidget
+    cart, setCart,orderId, setOrderId
   ] = useContext(CartContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -35,10 +34,6 @@ const SendOrder = ({ totalPrice }) => {
     setEmail("");
   };
 
-  const handleClick = () => {
-    setOcultarCartWidget(true);
-  }
-
   const db = getFirestore();
   const ordersCollection = collection(db, "orden");
 
@@ -51,28 +46,25 @@ const SendOrder = ({ totalPrice }) => {
     total: totalPrice(),
   };
 
-  // const handleConfirmClick = () => {
-  //   setCart(0);
-  // };
 
   return (
     <div>
       <Center>
-        <Heading>Sending orders</Heading>
+        <Heading>Orden del cliente</Heading>
       </Center>
 
       <Container>
         <FormControl>
           <form onSubmit={handleSubmit}>
-            <FormLabel>NAME</FormLabel>
+            <FormLabel>Nombre</FormLabel>
             <Input size="lg" onChange={(e) => setName(e.target.value)} />
-            <FormLabel>EMAIL</FormLabel>
+            <FormLabel>Email</FormLabel>
             <Input size="lg" onChange={(e) => setEmail(e.target.value)} />
             <Button colorScheme="blue" type="submit" m={5}>
-              Send Infomation
+              Enviar informacion
             </Button>
             <Link to={'/brief'}>
-            <Button onClick={handleClick}  colorScheme="blue" type="submit" m={5}>
+            <Button colorScheme="blue" type="submit" m={5}>
               Confirmar
             </Button>
             </Link>

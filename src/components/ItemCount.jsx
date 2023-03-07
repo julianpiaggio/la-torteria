@@ -43,7 +43,7 @@ const ItemCount = ({ stock, id, price, name, image }) => {
     <br />
     <Button className='resta' isDisabled={count<=0} onClick={()=> decrement()}>-</Button>
     <Button onClick={() => addToCart()} ml="20px" variant="solid" colorScheme="blue">
-      Add to Cart {count}
+      Agregar al carrito {count}
     </Button>
     </Stack>
     </>

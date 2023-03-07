@@ -13,7 +13,7 @@ import {
 import { Link } from 'react-router-dom';
 import { useState, useContext } from "react";
 import { CartContext } from "../contexts/CartContextComp";
-import SendOrder from "./SendOrder";
+import Checkout from "./Checkout";
 
 const Cart = () => {
   const [cart, setCart] = useContext(CartContext);
@@ -81,7 +81,7 @@ const Cart = () => {
             <Container className="totalPrice">
             <Heading>Total Compra:{totalPrice()}</Heading>
             </Container>
-      <SendOrder totalPrice={totalPrice} />
+      <Checkout totalPrice={totalPrice} />
     </>
   );
 };

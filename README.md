@@ -1,9 +1,8 @@
-# Welcome to LA Torteria 🌏
-la torteria is a company dedicated to the sale of products to the public, such as cakes, desserts, popsicles, etc.
+# Welcome to E-commerce LA Torteria 🌏
+La torteria is a company dedicated to the sale of products to the public, such as cakes, desserts, popsicles, etc.
 
-## Why choose us? 🤵
-
-We are a serious company, which has been maintained for several years in a competitive market, maintaining our quality and customer service above all as a premise.
+## Project description 🤵
+A web application designed on a single page, the objective of said website is the sale of products to the final consumer. To place the order, it has an order manager, which is responsible for storing them in a NoSQL database
 
 ## Content
 - [General info](#general-info)

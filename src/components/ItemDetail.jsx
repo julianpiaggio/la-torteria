@@ -44,7 +44,7 @@ const ItemDetail = ({ productos }) => {
             <Card className="card-main">
               <CardBody>
                 <Image w='300px' h='180px' src={producto.image} />
-                <Stack mt="6" spacing="3">
+                <Stack w='350px' mt="6" spacing="3">
                   <Heading size="md">{producto.name}</Heading>
                   <Text color="blue.800" fontSize="l">
                     Description: {producto.description}

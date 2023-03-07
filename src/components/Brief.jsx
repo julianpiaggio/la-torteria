@@ -5,6 +5,7 @@ import { Text, Flex, Button } from "@chakra-ui/react";
 
 const Brief = () => {
     const orderId  = useContext(CartContext);
+    console.log(orderId)
     return (
     <>
     <Flex justify="center" direction="column" alignItems="center" m="5">
